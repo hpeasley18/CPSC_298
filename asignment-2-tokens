@@ -1,0 +1,9 @@
+LLMs, or Large Language Models, are AI systems trained to 
+understand and generate human-like text from lots of data. 
+Tokenizers process that text into individual tokens, which 
+are then fed into LLMs for more processing. Mixture of Experts, 
+within LLM architectures, allows for specialized models to collaborate 
+on tasks, and enhance performance. Coding Assistance utilizes LLMs to 
+provide support to developers, offering features like code completion, 
+like CoPilot, and bug detection based on contextual understanding of 
+programming languages.
