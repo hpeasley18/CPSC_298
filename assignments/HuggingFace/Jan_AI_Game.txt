@@ -1,0 +1,67 @@
+Prompt:
+Create a blackjack game in c code where one user is the human who inputs the choice of 1. hit or 2. stay, also have a computer player 
+that plays all their moves after the humans turn
+
+
+Assistant: (OpenAI GPT 3.5 Turbo)
+Here is a simple implementation of a blackjack game in C code:
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int drawCard() {
+    return rand() % 10 + 1;
+}
+
+int main() {
+    srand(time(NULL));
+    
+    int humanScore = 0;
+    int computerScore = 0;
+    int choice;
+    
+    printf("Welcome to Blackjack!\n");
+    
+    while (1) {
+        printf("Your current score is: %d\n", humanScore);
+        printf("1. Hit\n2. Stay\n");
+        
+        scanf("%d", &choice);
+        
+        if (choice == 1) {
+            humanScore += drawCard();
+            
+            if (humanScore > 21) {
+                printf("Bust! You lose.\n");
+                break;
+            }
+        } else if (choice == 2) {
+            break;
+        } else {
+            printf("Invalid choice. Please try again.\n");
+        }
+    }
+    
+    printf("Computer's turn...\n");
+    
+    while (computerScore < 17) {
+        computerScore += drawCard();
+    }
+    
+    printf("Computer's score: %d\n", computerScore);
+    
+    if (computerScore > 21 || humanScore > computerScore) {
+        printf("You win!\n");
+    } else if (humanScore == computerScore) {
+        printf("It's a tie!\n");
+    } else {
+        printf("You lose.\n");
+    }
+    
+    return 0;
+}
+
+This code simulates a simple blackjack game where the human player can choose to hit or stay. 
+After the human player finishes their turn, the computer player will play all their moves. 
+The winner is determined based on the final scores of both players.
